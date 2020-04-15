@@ -5,7 +5,11 @@ class AddArticles extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            articles: []
+            title: '',
+            author: '',
+            link: '',
+            desc: '',
+            topics: []
         }
 
         this.addArticle = this.addArticle.bind(this);
