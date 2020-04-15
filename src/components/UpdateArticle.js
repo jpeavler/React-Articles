@@ -12,7 +12,7 @@ class UpdateArticle extends React.Component {
     updateArticle(event){
         event.preventDefault();
         fetch(`http://localhost:4000/api/articles/${this.state.id}`, {
-            method: 'DELETE'
+            method: 'PATCH'
         }).then(response => response.json())
         .then(articles => this.setState({articles}))
         .then(this.props.getArticles)
