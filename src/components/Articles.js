@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import AddArticles from './AddArticles'
+import DeleteArticle from './DeleteArticle';
 
 class Articles extends React.Component{
     constructor(props){
@@ -21,7 +22,8 @@ class Articles extends React.Component{
     }
     
     render(){
-        const ArticleComponents = this.state.articles.map(article => <li>{article.title}</li>)
+        const ArticleComponents = this.state.articles.map(article => 
+        <li>{article.title}<DeleteArticle id={article._id} getArticles={this.getArticles}/></li>)
         return (
             <>
                 <h2>Articles</h2>
