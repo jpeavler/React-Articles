@@ -4,7 +4,9 @@ class UpdateArticle extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            id: this.props.id
+            id: '',
+            key: '',
+            value: ''
         }
         this.updateArticle = this.updateArticle.bind(this);
         this.handleId = this.handleId.bind(this);
@@ -14,8 +16,15 @@ class UpdateArticle extends React.Component {
 
     updateArticle(event){
         event.preventDefault();
+        let updateData ={
+            [this.state.key] : this.state.value
+        };
         fetch(`http://localhost:4000/api/articles/${this.state.id}`, {
-            method: 'PATCH'
+            method: 'PATCH',
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updateData)
         }).then(this.props.getArticles)
     }
 
