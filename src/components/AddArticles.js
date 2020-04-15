@@ -29,9 +29,7 @@ class AddArticles extends React.Component{
                 'Content-Type' : "application/json"
             },
             body: JSON.stringify([this.state])
-        }).then(response => response.json())
-        .then(articles => this.setState({articles}))
-        .then(this.props.getArticles)
+        }).then(this.props.getArticles)
     }
 
     handleTitle(event) {
@@ -58,18 +56,16 @@ class AddArticles extends React.Component{
     
     render(){
         return (
-            <>
-                <form onSubmit={this.addArticle}>
-                    <input placeholder="Title" onChange={this.handleTitle} required/>
-                    <input placeholder="Author" onChange={this.handleAuthor}/>
-                    <input placeholder="Link" onChange={this.handleLink} required/>
-                    <input placeholder="Desc" onChange={this.handleDesc}/>
-                    <input placeholder="Topic 1" onChange={this.handleTopic1}/>
-                    <input placeholder="Topic 2" onChange={this.handleTopic2}/>
-                    <input placeholder="Topic 3" onChange={this.handleTopic3}/>
-                    <input type="submit" value="Add Article"/>
-                </form>
-            </>
+            <form onSubmit={this.addArticle}>
+                <input placeholder="Title" onChange={this.handleTitle} required/>
+                <input placeholder="Author" onChange={this.handleAuthor}/>
+                <input placeholder="Link" onChange={this.handleLink} required/>
+                <input placeholder="Desc" onChange={this.handleDesc}/>
+                <input placeholder="Topic 1" onChange={this.handleTopic1}/>
+                <input placeholder="Topic 2" onChange={this.handleTopic2}/>
+                <input placeholder="Topic 3" onChange={this.handleTopic3}/>
+                <input type="submit" value="Add Article"/>
+            </form>
         )
     }
 
