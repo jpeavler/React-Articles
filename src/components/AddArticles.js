@@ -23,23 +23,12 @@ class AddArticles extends React.Component{
     }
     addArticle(event) {
         event.preventDefault();
-        let subData = [{
-            'title': this.state.title,
-            'author': this.state.author,
-            'link': this.state.link,
-            'desc': this.state.desc,
-            'topics': [
-                this.state.topic1,
-                this.state.topic2,
-                this.state.topic3
-            ]
-        }]
         fetch('http://localhost:4000/api/articles', {
             method: 'POST',
             headers: {
                 'Content-Type' : "application/json"
             },
-            body: JSON.stringify(subData)
+            body: JSON.stringify([this.state])
         }).then(response => response.json())
         .then(articles => this.setState({articles}))
         .then(this.props.getArticles)
